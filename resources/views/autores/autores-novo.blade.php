@@ -11,7 +11,7 @@
 
     <main>
 
-        @component('components.formulario', ['rota' => '/autores/criar'])
+        @component('components.formulario', ['rota' => '/autores/salvar'])
             
         @endcomponent
 

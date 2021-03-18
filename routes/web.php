@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ControllerAutores;
+
 Route::get('/', function () 
 {
-    return view('autores/autores-criar');
+
 });
+
+Route::get('/autores/novo', [ControllerAutores::class, 'create']);
+Route::post('/autores/salvar', [ControllerAutores::class, 'store']);
