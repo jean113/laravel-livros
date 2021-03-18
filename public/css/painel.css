@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+
+html
+{
+    box-sizing: border-box;
+
+    font-size:60%;
+
+
+    --color-background: #5840BB;
+    --color-background-secundary: #fff;
+
+    --color-text-link: #fff;
+    --color-text-link-secundary:#5840BB;
+    --color-text-primary:#5840BB;
+
+    --color-text-header: #42427D;
+
+    --color-background-button: #2E64FE;
+    --color-background-button-darker:#0040FF;
+
+    --color-background-button-secundary: #B40404;
+    --color-background-button-secundary-darker:#8A0808;
+
+    --color-line: #5840BB;
+}
+
+body
+{
+    font: 400 1.1rem Noto Sans, sans-serif ;
+    color: var(-color-text-primary);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;     
+}
+
+
+main
+{
+    display:flex;
+    justify-content: center;
+}
+
+i
+{
+    margin-right:3px;
+}
+
+
+.painel
+{
+    margin-bottom: 8px;
+}
+
+.painel a
+{
+    font-weight: 700;
+    color:var(--color-text-link);
+    text-decoration:none;
+    margin-right:20px;
+}
+
+.painel a:hover
+{
+    color: var(--color-text-link-secundary);
+    background-color:var(--color-background-secundary);
+}
+
+.conteudo
+{
+    background-color: var(--color-background-secundary);
+    padding:10px;
+    border-radius: 8px;
+    margin-top: 3px;
+    height:100%;
+}
+
+h1
+{
+    color: var(--color-text-header);
+}
+
+th
+{
+    color: var(--color-text-header);
+}
+
+td
+{
+    padding:2.5px;
+    color: var(--color-text-primary);
+    text-align: center;
+    max-width: 100px;  
+    word-wrap: break-word; 
+}
+
+table
+{
+    margin-top:5px;
+    border-collapse: collapse;
+   
+}
+
+table div
+{
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+
+tbody > tr 
+{
+    border-bottom: 1px solid var(--color-line);
+}
+
+.botao_cadastrar
+{
+    font-size:1rem;
+    color: var(--color-text-link);
+    background-color: var(--color-background-button);
+    padding:2px;
+    border-radius:5px;
+    text-decoration: none;
+    transition: background-color 0.25s; 
+    border:none;
+    cursor:pointer;
+}
+
+
+.botao_cadastrar:hover
+{
+    background-color: var(--color-background-button-darker);
+}
+
+.botao_excluir
+{
+    font-size:1rem;
+    color: var(--color-text-link);
+    background-color: var(--color-background-button-secundary);
+    padding:2px;
+    border-radius:5px;
+    margin-left: 1px;
+    text-decoration: none;
+    transition: background-color 0.2s; 
+    cursor:pointer;
+}
+
+.botao_excluir:hover
+{
+    background-color: var(--color-background-button-secundary-darker);
+}
+
+
+@media(min-width: 700px)
+{
+    html
+    {
+        font-size:62.5%;    
+    }
+
+    body
+    {
+        font-size:1.6rem;
+        display:grid;
+        grid-template-columns: 200px 1fr ;
+        grid-template-areas: "painel conteudo";   
+    }
+
+    .botao_cadastrar
+    {
+        font-size:1.3rem;
+        color: var(--color-text-link);
+        background-color: var(--color-background-button);
+        border-radius:5px;
+        padding:7px;
+        text-decoration: none;
+        transition: background-color 0.25s; 
+        border:none;
+        cursor:pointer;
+    }
+
+    
+    .botao_excluir
+    {
+        font-size:1.3rem;
+        color: var(--color-text-link);
+        background-color: var(--color-background-button-secundary);
+        border-radius:5px;
+        padding:7px;
+        margin-left: 3px;
+        text-decoration: none;
+        transition: background-color 0.25s; 
+        cursor:pointer;
+    }
+
+    .conteudo
+    {
+        grid-area:conteudo;
+        padding:20px;
+        border-radius: 8px;
+        height:100%;
+    }
+
+    table
+    {
+        margin-top:15px;
+    }
+
+    table div
+    {
+        display:block; 
+    }
+
+    td
+    {
+        padding:15px;
+        max-width:450px;
+    }
+
+    th
+    {
+        padding-left:15px;   
+        padding-right:15px;  
+    }
+
+    .painel
+    {
+        margin-top:10rem;
+        grid-area:painel; 
+    }
+
+    .painel a
+    {   
+        display:flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        border-radius: 5px;
+        padding: 1rem;
+    }
+}
