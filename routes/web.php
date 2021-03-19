@@ -21,4 +21,4 @@ Route::get('/', function ()
 });
 
 Route::get('/autores/novo', [ControllerAutores::class, 'create']);
-Route::post('/autores/salvar', [ControllerAutores::class, 'store']);
+Route::post('/autores', [ControllerAutores::class, 'store']);
