@@ -1,4 +1,4 @@
-@extends('template.criar')
+@extends('template.geral')
 @section('conteudo')
 
         <header>
@@ -11,7 +11,7 @@
 
         <main>
 
-            <form role="form" action="/livros/criar" method="post">
+            <form role="form" action="/livros" method="post">
 
                 <div class="campos">
     

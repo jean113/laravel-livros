@@ -1,4 +1,4 @@
-@extends('template.criar')
+@extends('template.geral')
 @section('conteudo')
 
     <header>
@@ -13,7 +13,7 @@
 
     <main>
 
-        @component('components.formulario', ['rota' => '/editoras/criar'])
+        @component('components.formulario', ['rota' => '/editoras'])
         
         @endcomponent
 

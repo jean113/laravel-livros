@@ -1,4 +1,4 @@
-@extends('template.criar')
+@extends('template.geral')
 @section('conteudo')
 
     <header>

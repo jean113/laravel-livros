@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Autores;
+use App\Models\Editoras;
 
-class ControllerAutores extends Controller
+class ControllerEditoras extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class ControllerAutores extends Controller
     public function create()
     {
         //
-        return view('autores.autores-novo');
+        return view('editoras.editoras-novo');
     }
 
     /**
@@ -36,16 +36,15 @@ class ControllerAutores extends Controller
      */
     public function store(Request $request)
     {
-        //Tem que voltar e configurar o store para salvar os dados em banco
-        $autor = new Autores();
+        //
+        $editora = new Editoras();
 
-        $autor->nome = $request->input('nome');
-        $autor->telefone = $request->input('telefone');
-        $autor->email = $request->input('email');
-        $autor->obs = $request->input('obs');
+        $editora->nome = $request->input('nome');
+        $editora->telefone = $request->input('telefone');
+        $editora->email = $request->input('email');
+        $editora->obs = $request->input('obs');
 
-        $autor->save();
-
+        $editora->save();
     }
 
     /**

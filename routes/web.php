@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\ControllerAutores;
+use App\Http\Controllers\ControllerEditoras;
+use App\Http\Controllers\ControllerLivros;
 
 Route::get('/', function () 
 {
@@ -22,3 +24,9 @@ Route::get('/', function ()
 
 Route::get('/autores/novo', [ControllerAutores::class, 'create']);
 Route::post('/autores', [ControllerAutores::class, 'store']);
+
+Route::get('/editoras/novo', [ControllerEditoras::class, 'create']);
+Route::post('/editoras', [ControllerEditoras::class, 'store']);
+
+Route::get('/livros/novo', [ControllerLivros::class, 'create']);
+Route::post('/livros', [ControllerLivros::class, 'store']);
