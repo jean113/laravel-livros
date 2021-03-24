@@ -15,6 +15,8 @@ class ControllerAutores extends Controller
     public function index()
     {
         //
+        $autor = Autores::all();
+        return view('autores.autores', compact('autor'));
     }
 
     /**
@@ -45,6 +47,8 @@ class ControllerAutores extends Controller
         $autor->obs = $request->input('obs');
 
         $autor->save();
+
+        return redirect('/autores');
 
     }
 

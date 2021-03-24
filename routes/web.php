@@ -24,6 +24,7 @@ Route::get('/', function ()
 
 Route::get('/autores/novo', [ControllerAutores::class, 'create']);
 Route::post('/autores', [ControllerAutores::class, 'store']);
+Route::get('/autores', [ControllerAutores::class, 'index']);
 
 Route::get('/editoras/novo', [ControllerEditoras::class, 'create']);
 Route::post('/editoras', [ControllerEditoras::class, 'store']);
