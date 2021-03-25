@@ -3,7 +3,7 @@
     <div class="campos">
         <div>
             <label for="">Nome</label>
-            <input type="text" name="nome" maxlength="50" required/>
+            <input type="text" name="nome" maxlength="50" value="{{$item->nome}}" required/>
         </div>
 
         <div>

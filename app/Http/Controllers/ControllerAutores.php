@@ -38,7 +38,7 @@ class ControllerAutores extends Controller
      */
     public function store(Request $request)
     {
-        //Tem que voltar e configurar o store para salvar os dados em banco
+        //
         $autor = new Autores();
 
         $autor->nome = $request->input('nome');
@@ -72,6 +72,11 @@ class ControllerAutores extends Controller
     public function edit($id)
     {
         //
+        $autor = Autores::find($id);
+        if(isset($autor))
+            return view('autores.autores-editar', compact('autor'));
+
+        return redirect('/autores');
     }
 
     /**
@@ -84,6 +89,18 @@ class ControllerAutores extends Controller
     public function update(Request $request, $id)
     {
         //
+        $autor = Autores::find($id);
+        if(isset($autor))
+        {
+            $autor->nome = $request->input('nome');
+            $autor->telefone = $request->input('telefone');
+            $autor->email = $request->input('email');
+            $autor->obs = $request->input('obs');
+
+            $autor->save();
+        }
+
+        return redirect('/autores');
     }
 
     /**
@@ -95,5 +112,11 @@ class ControllerAutores extends Controller
     public function destroy($id)
     {
         //
+        $autor = Autores::find($id);
+        if(isset($autor))
+            $autor->delete();
+
+        return redirect('/autores');
+
     }
 }

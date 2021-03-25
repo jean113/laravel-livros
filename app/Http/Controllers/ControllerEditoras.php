@@ -15,6 +15,8 @@ class ControllerEditoras extends Controller
     public function index()
     {
         //
+        $editora = Editoras::all();
+        return view('editoras.editoras', compact('editora'));
     }
 
     /**
@@ -45,6 +47,8 @@ class ControllerEditoras extends Controller
         $editora->obs = $request->input('obs');
 
         $editora->save();
+
+        return redirect('/editoras');
     }
 
     /**
@@ -90,5 +94,10 @@ class ControllerEditoras extends Controller
     public function destroy($id)
     {
         //
+        $editora = Editoras::find($id);
+        if(isset($editora))
+            $editora->delete();
+
+        return redirect('/editoras');
     }
 }
