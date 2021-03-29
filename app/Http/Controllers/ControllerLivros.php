@@ -37,6 +37,19 @@ class ControllerLivros extends Controller
     public function store(Request $request)
     {
         //
+        $livro = new Livros();
+
+        $livro->titulo = $request->input('titulo');
+        $livro->autor = $request->input('autor');
+        $livro->editora = $request->input('editora');
+        $livro->telefone = $request->input('telefone');
+        $livro->telefone = $request->input('telefone');
+        $livro->email = $request->input('email');
+        $livro->obs = $request->input('obs');
+
+        $livro->save();
+
+        return redirect('/livros/novo');
     }
 
     /**

@@ -24,9 +24,9 @@
                         <label for="">Autor</label>
                     <select id="autor" name="autor" required>
                         <option value="" disabled selected>Selecione uma opção</option>
-                        {loop="$DATA"}
-                            <option value={$value.id}>{$value.nome}</option>
-                        {/loop}
+                        
+                            <option value="1">Jean</option>
+                       
                     </select>
                     </div>
                     
@@ -34,9 +34,8 @@
                         <label for="">Editora</label>
                         <select id="editora" name="editora" required>
                             <option value="" disabled selected>Selecione uma opção</option>
-                            {loop="$DATA2"}
-                                <option value={$value.id}>{$value.nome}</option>
-                            {/loop}
+                                <option value="1">Editora Abril</option>
+                           
                         </select>
                     </div>
         
