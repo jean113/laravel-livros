@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Livros;
+use App\Models\Autores;
+use App\Models\Editoras;
 
 class ControllerLivros extends Controller
 {
@@ -25,7 +27,9 @@ class ControllerLivros extends Controller
     public function create()
     {
         //
-        return view('livros.livros-novo');
+        $autor = Autores::all();
+        $editora = Editoras::all();
+        return view('livros.livros-novo', compact(['autor', 'editora']));
     }
 
     /**
@@ -42,10 +46,10 @@ class ControllerLivros extends Controller
         $livro->titulo = $request->input('titulo');
         $livro->autor = $request->input('autor');
         $livro->editora = $request->input('editora');
-        $livro->telefone = $request->input('telefone');
-        $livro->telefone = $request->input('telefone');
-        $livro->email = $request->input('email');
-        $livro->obs = $request->input('obs');
+        $livro->dtEdicao = $request->input('dtEdicao');
+        $livro->paginas = $request->input('paginas');
+        $livro->impressao = $request->input('impressao');
+        $livro->descricao = $request->input('descricao');
 
         $livro->save();
 

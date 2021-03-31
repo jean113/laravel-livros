@@ -12,7 +12,7 @@
         <main>
 
             <form role="form" action="/livros" method="post">
-
+                @csrf
                 <div class="campos">
     
                     <div>
@@ -23,10 +23,14 @@
                     <div>
                         <label for="">Autor</label>
                     <select id="autor" name="autor" required>
+
                         <option value="" disabled selected>Selecione uma opção</option>
+
+                        @foreach($autor as $item)       
+                            <option value="{{$item->id}}">{{$item->nome}}</option>
+                      
+                        @endforeach
                         
-                            <option value="1">Jean</option>
-                       
                     </select>
                     </div>
                     
@@ -34,7 +38,10 @@
                         <label for="">Editora</label>
                         <select id="editora" name="editora" required>
                             <option value="" disabled selected>Selecione uma opção</option>
-                                <option value="1">Editora Abril</option>
+                                
+                            @foreach($editora as $item)       
+                                <option value="{{$item->id}}">{{$item->nome}}</option>
+                            @endforeach    
                            
                         </select>
                     </div>
@@ -59,7 +66,7 @@
         
                     <div>
                         <label for="">Descrição</label>
-                        <textarea name="descricao" maxlength="200"></textarea>
+                        <textarea name="descricao" maxlength="200" required></textarea>
         
                     </div>
     
