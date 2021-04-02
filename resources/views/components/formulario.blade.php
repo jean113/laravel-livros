@@ -1,5 +1,6 @@
 <form role="form" action="{{$rota}}" method="post">
     @csrf
+   
     <div class="campos">
         <div>
             <label for="">Nome</label>

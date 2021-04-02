@@ -32,7 +32,10 @@ Route::post('/autores/{id}', [ControllerAutores::class, 'update']);
 Route::get('/editoras/novo', [ControllerEditoras::class, 'create']);
 Route::post('/editoras', [ControllerEditoras::class, 'store']);
 Route::get('/editoras', [ControllerEditoras::class, 'index']);
+Route::get('/editoras/editar/{id}', [ControllerEditoras::class, 'edit']);
+Route::post('/editoras/{id}', [ControllerEditoras::class, 'update']);
 Route::get('/editoras/apagar/{id}', [ControllerEditoras::class, 'destroy']);
 
 Route::get('/livros/novo', [ControllerLivros::class, 'create']);
 Route::post('/livros', [ControllerLivros::class, 'store']);
+Route::get('/livros', [ControllerLivros::class, 'index']);

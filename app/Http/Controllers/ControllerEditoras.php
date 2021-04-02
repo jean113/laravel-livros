@@ -70,7 +70,14 @@ class ControllerEditoras extends Controller
      */
     public function edit($id)
     {
+        
         //
+        $editora = Editoras::find($id);
+      
+        if(isset($editora))
+            return view('editoras.editoras-editar', compact('editora'));
+
+        return redirect('/editoras');
     }
 
     /**
@@ -83,6 +90,18 @@ class ControllerEditoras extends Controller
     public function update(Request $request, $id)
     {
         //
+        $editora = Editoras::find($id);
+        if(isset($editora))
+        {
+            $editora->nome = $request->input('nome');
+            $editora->telefone = $request->input('telefone');
+            $editora->email = $request->input('email');
+            $editora->obs = $request->input('obs');
+
+            $editora->save();
+        }
+
+        return redirect('/editoras');
     }
 
     /**

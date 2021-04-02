@@ -17,6 +17,8 @@ class ControllerLivros extends Controller
     public function index()
     {
         //
+        $livro = Livros::all();
+        return view('livros.livros', compact('livro'));
     }
 
     /**
@@ -53,7 +55,7 @@ class ControllerLivros extends Controller
 
         $livro->save();
 
-        return redirect('/livros/novo');
+        return redirect('/livros');
     }
 
     /**
