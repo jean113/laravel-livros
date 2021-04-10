@@ -28,7 +28,7 @@
                       <td>{{$item->descricao}}</td>
                       <td>
 
-                        <a href="{{$rota}}/editar/{{$item->id}}" class="btn btn-primary botao_cadastrar"> <i class="fa fa-edit fa-lg"></i> </a>
+                        <a href="{{$rota}}/editar/{{$item->id}}" class="btn btn-primary botao_cadastrar"> <i class="bi bi-pencil"></i> </a>
                         
                         <a href="{{$rota}}/apagar/{{$item->id}}" class="botao_excluir" onclick="return confirm('Deseja realmente excluir este registro?')">  
                             <i class="fa fa-trash-o fa-lg"></i>  

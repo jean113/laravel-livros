@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Livros;
 use App\Models\Autores;
 use App\Models\Editoras;
+use Illuminate\Support\Facades\DB;
 
 class ControllerLivros extends Controller
 {
@@ -17,7 +18,15 @@ class ControllerLivros extends Controller
     public function index()
     {
         //
-        $livro = Livros::all();
+        $livro = DB::table('livros')
+            ->select(['livros.id', 'livros.titulo', 'livros.dtEdicao', 'livros.paginas', 'livros.impressao', 
+                'livros.descricao', 'autores.nome as autor', 'editoras.nome as editora'])
+            ->join('autores', 'autores.id', '=', 'livros.autor')
+            ->join('editoras', 'editoras.id', '=', 'livros.editora')
+            // ->where('users.name', 'like', '%' . $request->name . '%')
+            ->get();
+
+        // $livro = Livros::all();
         return view('livros.livros', compact('livro'));
     }
 
@@ -78,6 +87,16 @@ class ControllerLivros extends Controller
     public function edit($id)
     {
         //
+        $livro = Livros::find($id);
+      
+        if(isset($livro))
+        {
+            $autor = Autores::all();
+            $editora = Editoras::all();
+            return view('livros.livros-editar', compact(['livro','autor','editora']));
+        }
+
+        return redirect('/livros');
     }
 
     /**
@@ -90,6 +109,23 @@ class ControllerLivros extends Controller
     public function update(Request $request, $id)
     {
         //
+        $livro = Livros::find($id);
+        if(isset($livro))
+        {
+            $livro->titulo = $request->input('titulo');
+            $livro->autor = $request->input('autor');
+            $livro->editora = $request->input('editora');
+            $livro->dtEdicao = $request->input('dtEdicao');
+            $livro->paginas = $request->input('paginas');
+            $livro->impressao = $request->input('impressao');
+            $livro->descricao = $request->input('descricao');
+
+            $livro->save();
+
+            return redirect('/livros');
+
+        }
+       
     }
 
     /**
@@ -101,5 +137,10 @@ class ControllerLivros extends Controller
     public function destroy($id)
     {
         //
+        $livro = Livros::find($id);
+        if(isset($livro))
+            $livro->delete();
+
+        return redirect('/livros');
     }
 }

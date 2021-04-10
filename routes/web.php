@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerAutores;
 use App\Http\Controllers\ControllerEditoras;
 use App\Http\Controllers\ControllerLivros;
+use App\Http\Controllers\Controlador;
 
-Route::get('/', function () 
-{
+Route::get('/', [Controlador::class, 'index']);
 
+Route::get('/login', function(){
+
+    return view('login.login');
 });
 
 Route::get('/autores/novo', [ControllerAutores::class, 'create']);
@@ -39,3 +42,7 @@ Route::get('/editoras/apagar/{id}', [ControllerEditoras::class, 'destroy']);
 Route::get('/livros/novo', [ControllerLivros::class, 'create']);
 Route::post('/livros', [ControllerLivros::class, 'store']);
 Route::get('/livros', [ControllerLivros::class, 'index']);
+Route::get('/livros/editar/{id}', [ControllerLivros::class, 'edit']);
+Route::post('/livros/{id}', [ControllerLivros::class, 'update']);
+Route::get('/livros/apagar/{id}', [ControllerLivros::class, 'destroy']);
+

@@ -1,3 +1,5 @@
-@component('components.listagem', ['rota' => '/editoras', 'lista' => $editora])
-            
+@component('components.painel')
+@endcomponent
+
+@component('components.listagem', ['rota' => '/editoras', 'lista' => $editora])          
 @endcomponent
